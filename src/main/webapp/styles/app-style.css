@@ -1,0 +1,28 @@
+body {
+    padding: 10px;
+    font-size: 12px;
+    line-height: 15px;
+    overflow: auto;
+}
+
+div.game-board {
+    border: dashed;
+}
+
+div.view-container {
+    width:600px;
+    margin:0px auto;
+    margin-top: 100px;
+}
+
+label.page-title {
+    font-size: 20px;
+}
+
+label.checkbox {
+    margin-right: 10px;
+}
+
+div.stats {
+    margin-top: 50px;
+}

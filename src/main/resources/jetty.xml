@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!DOCTYPE Configure PUBLIC "-//Jetty//Configure//EN" "http://www.eclipse.org/jetty/configure.dtd">
+
+<Configure id="server" class="org.eclipse.jetty.server.Server">
+    <Get name="threadPool">
+        <Set name="minThreads">10</Set>
+        <Set name="maxThreads">30</Set>
+    </Get>
+    <Call name="addConnector">
+        <Arg>
+            <New class="org.eclipse.jetty.server.ServerConnector">
+                <Arg>
+                    <Ref id="server"/>
+                </Arg>
+                <Arg>
+                    <Array type="org.eclipse.jetty.server.HttpConnectionFactory">
+                        <Item>
+                            <New class="org.eclipse.jetty.server.HttpConnectionFactory">
+                                <Arg>
+                                    <New class="org.eclipse.jetty.server.HttpConfiguration">
+                                        <Set name="requestHeaderSize">65536</Set>
+                                        <Set name="responseHeaderSize">65536</Set>
+                                        <Set name="sendDateHeader">true</Set>
+                                        <Set name="sendServerVersion">true</Set>
+                                    </New>
+                                </Arg>
+                            </New>
+                        </Item>
+                    </Array>
+                </Arg>
+                <Set name="host">${service.jetty.host}</Set>
+                <Set name="port">${service.jetty.port}</Set>
+                <Set name="idleTimeout">30000</Set>
+            </New>
+        </Arg>
+    </Call>
+</Configure>
