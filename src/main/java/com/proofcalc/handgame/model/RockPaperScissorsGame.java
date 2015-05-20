@@ -11,8 +11,9 @@ public class RockPaperScissorsGame extends ZeroSumHandGame {
 
     public static final List<Gesture> GESTURES = Arrays.asList(Paper, Rock, Scissors);
 
-    public RockPaperScissorsGame(Player player1, Player player2) {
-        super(player1, player2);
+    @Override
+    public List<Gesture> getGameChoices() {
+        return GESTURES;
     }
 
 }

@@ -23,12 +23,12 @@ public class DifferentGameEachTimeSteps {
 
     @Then("^Player is a (\\w+)$")
     public void playerIsA(String playerInstance) throws Throwable {
-        assertEquals(this.game.player1.getClass().getSimpleName(), playerInstance);
+        assertEquals(this.game.getPlayer1().getClass().getSimpleName(), playerInstance);
     }
 
     @Then("^Versus Player is a (\\w+)$")
     public void playerIsAHumanPlayer(String playerInstance) throws Throwable {
-        assertEquals(this.game.player2.getClass().getSimpleName(), playerInstance);
+        assertEquals(this.game.getPlayer2().getClass().getSimpleName(), playerInstance);
     }
 
 }

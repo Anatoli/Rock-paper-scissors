@@ -1,52 +1,50 @@
 package com.proofcalc.handgame.model;
 
 import com.proofcalc.handgame.exception.ZeroSumHandGameException;
+import com.proofcalc.handgame.model.input.DefaultUserInputReader;
 
 import java.util.List;
 
-import static com.proofcalc.handgame.model.GameType.RockPaperScissors;
 import static com.proofcalc.handgame.model.PlayerConfig.ComputerVsComputer;
-import static com.proofcalc.handgame.model.PlayerConfig.HumanVsComputer;
 
 public class ZeroSumHandGameFactory {
 
     public static ZeroSumHandGame getGameBy(GameConfig gameConfig) {
-
-        List<Gesture> gameChoices = gameConfig.getGameType() == RockPaperScissors ? RockPaperScissorsGame.GESTURES :
-                RockPaperScissorsLizardSpockGame.GESTURES;
-        Player player1 = assembleMainPlayer(gameConfig, gameChoices);
-        Player player2 = assembleVsPlayer(gameChoices);
-
+        ZeroSumHandGame game;
         switch (gameConfig.getGameType()) {
             case RockPaperScissors:
-                return new RockPaperScissorsGame(player1, player2);
+                game = new RockPaperScissorsGame();
+                break;
             case RockPaperScissorsLizardSpock:
-                return new RockPaperScissorsLizardSpockGame(player1, player2);
+                game = new RockPaperScissorsLizardSpockGame();
+                break;
             default:
                 throw new ZeroSumHandGameException("Not supported game: " + gameConfig.getGameType().name());
         }
+
+        List<Gesture> gameChoices = game.getGameChoices();
+        return game
+                .setPlayer1(assembleMainPlayer(gameConfig, gameChoices))
+                .setPlayer2(assembleVsPlayer(gameConfig, gameChoices));
+
     }
 
-    private static Player assembleMainPlayer(final GameConfig gameConfig, final List<Gesture> choices) {
+    private static Player assembleMainPlayer(final GameConfig gameConfig, List<Gesture> gameChoices) {
+        Player player;
         if (gameConfig.getPlayerConfig() == ComputerVsComputer) {
-            return new ComputerPlayer(choices);
+            player = new ComputerPlayer();
         } else {
             if (gameConfig.hasUserChoice()) {
-                return new HumanPlayer(choices) {
-                    @Override
-                    protected Gesture getUserInput() {
-                        return gameConfig.getUserChoice();
-                    }
-                };
+                player = new HumanPlayerWithChoice(gameConfig.getUserChoice());
             } else {
-                new HumanPlayer(choices);
+                player = new HumanPlayerInteractive(new DefaultUserInputReader());
             }
         }
-        return gameConfig.getPlayerConfig() == HumanVsComputer ? new HumanPlayer(choices) : new ComputerPlayer(choices);
+        return player;
     }
 
-    private static Player assembleVsPlayer(List<Gesture> choices) {
-        return new ComputerPlayer(choices);
+    private static Player assembleVsPlayer(final GameConfig gameConfig, List<Gesture> gameChoices) {
+        return new ComputerPlayer();
     }
 
 }

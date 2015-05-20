@@ -23,23 +23,24 @@ public class PlayerVsComputerSteps {
 
     @Given("^A human player plays vs computer player$")
     public void aHumanPlayerPlaysVsComputerPlayer() throws Throwable {
-        this.humanPlayer = spy(new HumanPlayer(gameChoices));
-        this.computerPlayer = spy(new ComputerPlayer(gameChoices));
-        this.game = new RockPaperScissorsGame(this.humanPlayer, this.computerPlayer);
+        this.computerPlayer = spy(new ComputerPlayer());
     }
 
     @When("^Human player choose (\\w+)$")
     public void humanPlayerChoose(String playerChoice) throws Throwable {
-        when(this.humanPlayer.getChoice()).thenReturn(Gesture.valueOf(playerChoice));
+        this.humanPlayer = new HumanPlayerWithChoice(Gesture.valueOf(playerChoice));
     }
 
     @And("^Computer player choose (\\w+)$")
     public void computerPlayerChoose(String computerChoice) throws Throwable {
-        when(this.computerPlayer.getChoice()).thenReturn(Gesture.valueOf(computerChoice));
+        when(this.computerPlayer.getChoice(gameChoices)).thenReturn(Gesture.valueOf(computerChoice));
     }
 
     @Then("^The outcome of the game should be (\\w+)$")
     public void theOutcomeOfTheGameShouldBe(String gameOutcome) throws Throwable {
+        this.game = new RockPaperScissorsGame()
+                .setPlayer1(this.humanPlayer)
+                .setPlayer2(this.computerPlayer);
         Assert.assertEquals("Wrong expected outcome", this.game.play().outcome, Outcome.valueOf(gameOutcome.toUpperCase()));
     }
 

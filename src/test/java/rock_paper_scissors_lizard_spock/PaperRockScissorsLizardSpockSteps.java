@@ -24,23 +24,25 @@ public class PaperRockScissorsLizardSpockSteps {
 
     @Given("^Extended Human vs Computer game ")
     public void extendedHumanVsComputerGame() throws Throwable {
-        this.humanPlayer = spy(new HumanPlayer(gameChoices));
-        this.computerPlayer = spy(new ComputerPlayer(gameChoices));
-        this.game = new RockPaperScissorsGame(this.humanPlayer, this.computerPlayer);
+        this.computerPlayer = spy(new ComputerPlayer());
     }
 
     @When("^Human user choice (\\w+)$")
     public void userChooses(String userChoice) throws Throwable {
-        when(this.humanPlayer.getChoice()).thenReturn(Gesture.valueOf(userChoice));
+        this.humanPlayer = new HumanPlayerWithChoice(Gesture.valueOf(userChoice));
     }
 
     @When("^Computer user choice (\\w+)$")
     public void computerChoice(String computerChoice) throws Throwable {
-        when(this.computerPlayer.getChoice()).thenReturn(Gesture.valueOf(computerChoice));
+        when(this.computerPlayer.getChoice(gameChoices)).thenReturn(Gesture.valueOf(computerChoice));
     }
 
     @Then("^The game ends as (\\w+)$")
     public void theGameEndsAsWin(String gameOutcome) throws Throwable {
+        this.game = new RockPaperScissorsLizardSpockGame()
+                .setPlayer1(this.humanPlayer)
+                .setPlayer2(this.computerPlayer);
+
         Assert.assertEquals(this.game.play().outcome, Outcome.valueOf(gameOutcome.toUpperCase()));
     }
 }

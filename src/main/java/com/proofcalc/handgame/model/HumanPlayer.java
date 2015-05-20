@@ -2,19 +2,13 @@ package com.proofcalc.handgame.model;
 
 import java.util.List;
 
-public class HumanPlayer extends Player {
-
-    public HumanPlayer(List<Gesture> choices) {
-        super(choices);
-    }
+public abstract class HumanPlayer extends Player {
 
     @Override
-    public Gesture getChoice() {
-        return getUserInput();
+    public Gesture getChoice(List<Gesture> availableChoices) {
+        return getUserInput(availableChoices);
     }
 
-    protected Gesture getUserInput() {
-        return choices.get(0);
-    }
+    abstract protected Gesture getUserInput(List<Gesture> availableChoices);
 
 }

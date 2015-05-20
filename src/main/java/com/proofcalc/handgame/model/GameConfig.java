@@ -40,4 +40,5 @@ public class GameConfig {
     public boolean hasUserChoice() {
         return this.userChoice != null;
     }
+
 }

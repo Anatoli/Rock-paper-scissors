@@ -7,8 +7,8 @@ Feature: Different Game each time
     And Versus Player is a <VsPlayerType>
 
   Examples: Converts game config into game instance
-    | GameType                     | PlayerConfig       | GameInstance                     | PlayerType     | VsPlayerType   |
-    | RockPaperScissors            | HumanVsComputer    | RockPaperScissorsGame            | HumanPlayer    | ComputerPlayer |
-    | RockPaperScissors            | ComputerVsComputer | RockPaperScissorsGame            | ComputerPlayer | ComputerPlayer |
-    | RockPaperScissorsLizardSpock | HumanVsComputer    | RockPaperScissorsLizardSpockGame | HumanPlayer    | ComputerPlayer |
+    | GameType                     | PlayerConfig       | GameInstance                     | PlayerType             | VsPlayerType   |
+    | RockPaperScissors            | HumanVsComputer    | RockPaperScissorsGame            | HumanPlayerInteractive | ComputerPlayer |
+    | RockPaperScissors            | ComputerVsComputer | RockPaperScissorsGame            | ComputerPlayer         | ComputerPlayer |
+    | RockPaperScissorsLizardSpock | HumanVsComputer    | RockPaperScissorsLizardSpockGame | HumanPlayerInteractive | ComputerPlayer |
 

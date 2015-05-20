@@ -5,14 +5,10 @@ import java.util.Random;
 
 public class ComputerPlayer extends Player {
 
-    public ComputerPlayer(List<Gesture> choices) {
-        super(choices);
-    }
-
     @Override
-    public Gesture getChoice() {
-        int randomIndex = randInt(0, this.choices.size() - 1);
-        return choices.get(randomIndex);
+    public Gesture getChoice(List<Gesture> availableChoices) {
+        int randomIndex = randInt(0, availableChoices.size() - 1);
+        return availableChoices.get(randomIndex);
     }
 
     private Random rand = new Random();

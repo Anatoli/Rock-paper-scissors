@@ -13,11 +13,11 @@ public class ComputerPlayerTest {
     @Test
     public void shouldReturnRandomChoices() {
         List<Gesture> gestures = RockPaperScissorsGame.GESTURES;
-        ComputerPlayer computerPlayer = new ComputerPlayer(gestures);
+        ComputerPlayer computerPlayer = new ComputerPlayer();
         Map<Gesture, Integer> counter = initCounter(gestures);
         int sampleCount = 10000;
         for (int i = 0; i < sampleCount; i++) {
-            Gesture gesture = computerPlayer.getChoice();
+            Gesture gesture = computerPlayer.getChoice(gestures);
             counter.put(gesture, counter.get(gesture) + 1);
         }
 
