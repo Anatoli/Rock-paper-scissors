@@ -1,4 +1,6 @@
-package com.proofcalc.handgame.model;
+package com.proofcalc.handgame.model.player;
+
+import com.proofcalc.handgame.model.input.Gesture;
 
 import java.util.List;
 import java.util.Random;

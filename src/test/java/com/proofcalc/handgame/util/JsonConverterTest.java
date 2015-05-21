@@ -1,8 +1,8 @@
 package com.proofcalc.handgame.util;
 
-import com.proofcalc.handgame.model.GameOutcome;
-import com.proofcalc.handgame.model.Gesture;
-import com.proofcalc.handgame.model.strategy.Outcome;
+import com.proofcalc.handgame.model.game.GameOutcome;
+import com.proofcalc.handgame.model.input.Gesture;
+import com.proofcalc.handgame.model.game.Outcome;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

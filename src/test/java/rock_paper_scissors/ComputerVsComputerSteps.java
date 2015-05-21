@@ -1,6 +1,10 @@
 package rock_paper_scissors;
 
-import com.proofcalc.handgame.model.*;
+import com.proofcalc.handgame.model.game.GameConfig;
+import com.proofcalc.handgame.model.game.GameType;
+import com.proofcalc.handgame.model.game.ZeroSumHandGame;
+import com.proofcalc.handgame.model.game.ZeroSumHandGameFactory;
+import com.proofcalc.handgame.model.player.PlayerConfig;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import org.junit.Assert;

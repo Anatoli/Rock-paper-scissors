@@ -1,5 +1,8 @@
 package com.proofcalc.handgame.model;
 
+import com.proofcalc.handgame.model.game.RockPaperScissorsGame;
+import com.proofcalc.handgame.model.input.Gesture;
+import com.proofcalc.handgame.model.player.ComputerPlayer;
 import org.junit.Test;
 
 import java.util.HashMap;

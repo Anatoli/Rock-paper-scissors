@@ -1,10 +1,9 @@
 package com.proofcalc.handgame.rest;
 
-import com.proofcalc.handgame.model.GameConfig;
-import com.proofcalc.handgame.model.strategy.Outcome;
-import com.proofcalc.handgame.model.ZeroSumHandGame;
-import com.proofcalc.handgame.model.ZeroSumHandGameFactory;
-import com.proofcalc.handgame.model.GameOutcome;
+import com.proofcalc.handgame.model.game.GameConfig;
+import com.proofcalc.handgame.model.game.ZeroSumHandGame;
+import com.proofcalc.handgame.model.game.ZeroSumHandGameFactory;
+import com.proofcalc.handgame.model.game.GameOutcome;
 import com.proofcalc.handgame.util.JsonConverter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

@@ -1,8 +1,8 @@
 package com.proofcalc.handgame.rest;
 
-import com.proofcalc.handgame.model.GameConfig;
-import com.proofcalc.handgame.model.GameOutcome;
-import com.proofcalc.handgame.model.Gesture;
+import com.proofcalc.handgame.model.game.GameConfig;
+import com.proofcalc.handgame.model.game.GameOutcome;
+import com.proofcalc.handgame.model.input.Gesture;
 import com.proofcalc.handgame.util.JsonConverter;
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientResponse;

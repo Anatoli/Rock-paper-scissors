@@ -1,4 +1,7 @@
-package com.proofcalc.handgame.model;
+package com.proofcalc.handgame.model.game;
+
+import com.proofcalc.handgame.model.input.Gesture;
+import com.proofcalc.handgame.model.player.PlayerConfig;
 
 public class GameConfig {
     private GameType gameType;

@@ -1,7 +1,6 @@
-package com.proofcalc.handgame.model;
+package com.proofcalc.handgame.model.game;
 
-import com.proofcalc.handgame.model.Gesture;
-import com.proofcalc.handgame.model.strategy.Outcome;
+import com.proofcalc.handgame.model.input.Gesture;
 
 public class GameOutcome {
     public final Gesture player1Choice;

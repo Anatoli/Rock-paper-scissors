@@ -1,11 +1,16 @@
-package com.proofcalc.handgame.model;
+package com.proofcalc.handgame.model.game;
 
 import com.proofcalc.handgame.exception.ZeroSumHandGameException;
 import com.proofcalc.handgame.model.input.DefaultUserInputReader;
+import com.proofcalc.handgame.model.input.Gesture;
+import com.proofcalc.handgame.model.player.ComputerPlayer;
+import com.proofcalc.handgame.model.player.HumanPlayerInteractive;
+import com.proofcalc.handgame.model.player.HumanPlayerWithChoice;
+import com.proofcalc.handgame.model.player.Player;
 
 import java.util.List;
 
-import static com.proofcalc.handgame.model.PlayerConfig.ComputerVsComputer;
+import static com.proofcalc.handgame.model.player.PlayerConfig.ComputerVsComputer;
 
 public class ZeroSumHandGameFactory {
 

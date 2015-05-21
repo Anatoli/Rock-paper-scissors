@@ -1,8 +1,13 @@
 package rock_paper_scissors_lizard_spock;
 
 
-import com.proofcalc.handgame.model.*;
-import com.proofcalc.handgame.model.strategy.Outcome;
+import com.proofcalc.handgame.model.game.RockPaperScissorsLizardSpockGame;
+import com.proofcalc.handgame.model.game.ZeroSumHandGame;
+import com.proofcalc.handgame.model.input.Gesture;
+import com.proofcalc.handgame.model.player.ComputerPlayer;
+import com.proofcalc.handgame.model.player.HumanPlayer;
+import com.proofcalc.handgame.model.player.HumanPlayerWithChoice;
+import com.proofcalc.handgame.model.game.Outcome;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;

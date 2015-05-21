@@ -1,4 +1,4 @@
-package com.proofcalc.handgame.model;
+package com.proofcalc.handgame.model.input;
 
 public enum Gesture {
 
